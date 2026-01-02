@@ -1,13 +1,14 @@
-package com.main.app.Users;
-
+package com.main.app.StudentLogin;
+import com.main.app.Users.UserManager;
+import com.main.app.Users.User;
 import java.util.Scanner;
 
 public class Signup {
 
     private static final Scanner SC = new Scanner(System.in);
 
-    public static void registerUser(UserManager userManager) {
-        System.out.println("\n=== REGISTER NEW USER ===");
+    public static void registerStudent(UserManager userManager) {
+        System.out.println("\n=== REGISTER NEW STUDENT ===");
 
         String firstname = prompt("Enter your Firstname: ");
         String lastname  = prompt("Enter your Lastname: ");
@@ -17,13 +18,17 @@ public class Signup {
         User newUser = new User(firstname, lastname, username, password);
 
         if (userManager.addUser(newUser)) {
+            System.out.println();
             System.out.println("Successfully created an account!");
+            SC.nextLine();
         } else {
+            System.out.println();
             System.out.println("Username already exists. Try a different one.");
+            SC.nextLine();
         }
     }
 
-    // Utility method to prompt user input
+    
     private static String prompt(String message) {
         System.out.print(message);
         return SC.nextLine().trim();

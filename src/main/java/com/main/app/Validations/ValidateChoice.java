@@ -1,0 +1,33 @@
+package com.main.app.Validations;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import com.main.app.Utils.Clear;
+
+public class ValidateChoice {
+    static Clear clear = new Clear();
+    
+    public int validateChoice(String msg) {
+        
+        Scanner SC = new Scanner(System.in);      
+        boolean run = false;
+        while (!run) {
+            try {
+                System.out.print(msg);
+                String choice = SC.nextLine();
+                if (choice.isEmpty()) {
+                    System.out.println("Input should not be empty.");
+                    SC.nextLine();
+                    return 0;
+                } else {
+                    return Integer.parseInt(choice);
+                }                           
+            } catch (NumberFormatException e) {
+                System.out.println("Please select a valid a number");
+                SC.nextLine();
+                return 0;
+                //run = false;
+            }
+        }
+        return 0;
+    }
+}

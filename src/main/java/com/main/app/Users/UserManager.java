@@ -3,7 +3,7 @@ package com.main.app.Users;
 import java.util.ArrayList;
 
 public class UserManager {
-    private ArrayList<User> users= new ArrayList<>();
+    private ArrayList<User> users = new ArrayList<>();
     
     public boolean addUser(User user) {
         for (User u: users) {

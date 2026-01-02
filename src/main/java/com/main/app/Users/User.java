@@ -7,7 +7,6 @@ private String lastname;
 private String username;  
 private String password;  
   
-// Constructor  
 public User(String firstname, String lastname, String username, String password) {  
     this.firstname = firstname;  
     this.lastname = lastname;  
@@ -15,19 +14,31 @@ public User(String firstname, String lastname, String username, String password)
     this.password = password;  
 }  
   
-// Getters  
 public String getFirstname() { return firstname; }  
 public String getLastname()  { return lastname; }  
 public String getUsername()  { return username; }  
 
-// Setters  
 public void setFirstname(String firstname) { this.firstname = firstname; }  
 public void setLastname(String lastname)   { this.lastname = lastname; }  
 public void setPassword(String password)   { this.password = password; }  
   
-// Simplified password check  
 public boolean checkPassword(String pass) {  
     return this.password.equals(pass);  
 }
 
 }
+class Admin {
+    private String adminUsername = "Admin123";
+    private int adminPassword = 1234;
+    
+    Admin(String adminUsername,int adminPassword) {
+        this.adminUsername = adminUsername;
+        this.adminPassword = adminPassword;
+    }
+    public void setAdminUsername(String adminUsername) {
+        this.adminUsername = adminUsername;
+    }
+    public void setAdminPassword(int adminPassword) {
+        this.adminPassword = adminPassword;
+    }
+    
