@@ -36,6 +36,7 @@ public class Output {
         clear.screen();
         printHeader();
         System.out.println();
+        System.out.println("==== LOGIN MENU ====");
         System.out.println(" [1] Admin Login");
         System.out.println(" [2] Student Login");
         System.out.println(" [3] Exit");
