@@ -82,6 +82,7 @@ public class StudentAuth {
         printHeader(header);
 
         // Student menu options
+        System.out.println();
         System.out.println("==== STUDENT LOGIN ====");
         System.out.println(" [1] Login");
         System.out.println(" [2] Signup");

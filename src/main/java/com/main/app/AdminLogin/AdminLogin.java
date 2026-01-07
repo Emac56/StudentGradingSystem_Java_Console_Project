@@ -1,11 +1,15 @@
 package com.main.app.AdminLogin;
-
+import com.main.app.AdminMenu.AdminMenu;
+import com.main.app.Utils.Pause;
 import java.util.Scanner;
+import com.main.app.Users.UserManager;
 
 public class AdminLogin {
     private static final Scanner sc = new Scanner(System.in);
-
-    public static void loginAdmin(Admin admin) {
+    public static void loginAdmin(Admin admin,UserManager userManager) {
+        
+        AdminMenu menu = new AdminMenu(userManager);
+        Pause pause = new Pause();
         System.out.println("\n==== ADMIN LOGIN ====");
         System.out.print("Enter Username: ");
         String username = sc.nextLine();
@@ -15,11 +19,14 @@ public class AdminLogin {
 
         if (admin.getAdminUsername().equals(username) && admin.checkAdminPass(password)) {
             System.out.println("Login Successful!");
+            pause.screen();
+            menu.display();
+            
         } else {
-            System.out.println("Invalid credentials!");
+            System.out.println("Invalid Credentials.");
+            pause.screen();
+            return;
         }
-
-        System.out.println("Press Enter to continue...");
-        sc.nextLine();
+        pause.screen();
     }
 }

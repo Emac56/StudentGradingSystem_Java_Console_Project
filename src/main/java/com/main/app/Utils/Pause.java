@@ -5,5 +5,6 @@ public class Pause {
     public void screen() {
         Scanner sc = new Scanner(System.in);
         System.out.print("\nPress Enter to continue...");
+        sc.nextLine();
     }
 }

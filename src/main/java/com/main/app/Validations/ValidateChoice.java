@@ -19,7 +19,6 @@ public int validateChoice(String msg) {
             if (choice.isEmpty()) {  
                 System.out.println("Input should not be empty.");
                 pause.screen();                
-                SC.nextLine();
                 return 0;  
             } else {  
                 return Integer.parseInt(choice);  
@@ -27,7 +26,6 @@ public int validateChoice(String msg) {
         } catch (NumberFormatException e) {  
             System.out.println("Please select a valid a number");
             pause.screen();            
-            SC.nextLine();  
             return 0;  
             //run = false;  
         }  

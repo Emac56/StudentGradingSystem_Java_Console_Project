@@ -29,6 +29,7 @@ public class AdminAuth {
             printHeader();
             System.out.println("Username: " + admin.getAdminUsername());
             System.out.println("Password: " + admin.getAdminPassword());
+            System.out.println();
             System.out.println("==== ADMIN MENU ====");
             System.out.println(" [1] Login");
             System.out.println(" [2] Change Username");
@@ -44,7 +45,7 @@ public class AdminAuth {
 
     private boolean handleChoice(int choice) {
         switch (choice) {
-            case 1 -> AdminLogin.loginAdmin(admin);
+            case 1 -> AdminLogin.loginAdmin(admin,userManager);
             case 2 -> ChangeUsername.changeUsername(admin);
             case 3 -> ChangePassword.changePassword(admin);
             case 4 -> {
