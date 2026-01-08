@@ -7,29 +7,30 @@ import com.main.app.Validations.ValidateChoice;
 
 public class AddStudent {
 
-    private StudentManager studentManager;
+private StudentManager studentManager;  
 
-    public AddStudent(StudentManager studentManager) {
-        this.studentManager = studentManager;
-    }
+public AddStudent(StudentManager studentManager) {  
+    this.studentManager = studentManager;  
+}  
 
-    public void add() {
-        Scanner scanner = new Scanner(System.in);
-        Pause pause = new Pause();
-        ValidateChoice choice = new ValidateChoice();
+public void add() {  
+    Scanner scanner = new Scanner(System.in);  
+    Pause pause = new Pause();  
+    ValidateChoice choice = new ValidateChoice();  
 
-        System.out.print("Enter Student Name: ");
-        String studentName = scanner.nextLine();
-        int studentId = choice.validateChoice("Enter Student Id: ");
+    System.out.print("Enter Student Name: ");  
+    String studentName = scanner.nextLine();  
+    int studentId = choice.validateChoice("Enter Student Id: ");  
 
-        Student newStudent = new Student(studentName, studentId);
+    Student newStudent = new Student(studentName, studentId);  
 
-        if (studentManager.addStudent(newStudent)) {
-            System.out.println("Successfully added: " + studentName);
-        } else {
-            System.out.println("Student already exists");
-        }
+    if (studentManager.addStudent(newStudent)) {  
+        System.out.println("Successfully added: " + studentName);  
+    } else {  
+        System.out.println("Student already exists");  
+    }  
 
-        pause.screen();
-    }
+    pause.screen();  
+}
+
 }

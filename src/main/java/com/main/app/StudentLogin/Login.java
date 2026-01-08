@@ -1,41 +1,58 @@
 package com.main.app.StudentLogin;
+
 import com.main.app.Users.UserManager;
 import com.main.app.Users.User;
-import java.util.Scanner;
 import com.main.app.Utils.Clear;
+import com.main.app.Utils.Pause;
 
+import java.util.Scanner;
+
+/**
+ * Handles student login functionality.
+ */
 public class Login {
-    private static final Scanner scan = new Scanner(System.in);
-    private static final Clear clear = new Clear();
-    
+
+    private static final Scanner SC = new Scanner(System.in);
+    private static final Clear CLEAR = new Clear();
+
+    /**
+     * Logs in a student using their username and password.
+     *
+     * @param userManager UserManager instance to check user credentials
+     */
     public static void loginStudent(UserManager userManager) {
+        CLEAR.screen();
+
+        // Prompt for username and password
         String username = prompt("Enter username: ");
         String password = prompt("Enter password: ");
-        
+
         User user = userManager.getByUsername(username);
-        
+
         if (user == null) {
-            System.out.println();
-            System.out.println("You don't have an account. Please sign up first.");
-            scan.nextLine();
+            System.out.println("\nYou don't have an account. Please sign up first.");
+            Pause.screen();
             return;
         }
-        
+
         if (user.checkPassword(password)) {
-            System.out.println();
-            System.out.println("Login Successful!");
-            scan.nextLine();
+            System.out.println("\nLogin Successful!");
+            Pause.screen();
             return;
         }
-        
-        System.out.println();
-        System.out.println("Incorrect password. Try again.");
-        scan.nextLine();
-        
-        return;
+
+        System.out.println("\nIncorrect password. Try again.");
+        Pause.screen();
     }
+
+    /**
+     * Utility method to prompt the user and get input.
+     *
+     * @param message Message to display
+     * @return Trimmed user input
+     */
     private static String prompt(String message) {
         System.out.print(message);
-        return scan.nextLine().trim();
+        return SC.nextLine().trim();
     }
 }

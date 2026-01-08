@@ -1,15 +1,29 @@
 package com.main.app.StudentLogin;
+
 import com.main.app.Users.UserManager;
 import com.main.app.Users.User;
+import com.main.app.Utils.Pause;
+import com.main.app.Utils.Clear;
+
 import java.util.Scanner;
 
+/**
+ * Handles student registration functionality.
+ */
 public class Signup {
 
     private static final Scanner SC = new Scanner(System.in);
 
+    /**
+     * Registers a new student in the system.
+     *
+     * @param userManager UserManager instance to manage users
+     */
     public static void registerStudent(UserManager userManager) {
+        Clear.screen();
         System.out.println("\n=== REGISTER NEW STUDENT ===");
 
+        // Prompt for student details
         String firstname = prompt("Enter your Firstname: ");
         String lastname  = prompt("Enter your Lastname: ");
         String username  = prompt("Enter your Username: ");
@@ -17,18 +31,23 @@ public class Signup {
 
         User newUser = new User(firstname, lastname, username, password);
 
+        // Attempt to add the new user
         if (userManager.addUser(newUser)) {
-            System.out.println();
-            System.out.println("Successfully created an account!");
-            SC.nextLine();
+            System.out.println("\nSuccessfully created an account!");
         } else {
-            System.out.println();
-            System.out.println("Username already exists. Try a different one.");
-            SC.nextLine();
+            System.out.println("\nUsername already exists. Try a different one.");
         }
+
+        // Pause for user to read message
+        Pause.screen();
     }
 
-    
+    /**
+     * Prompts the user and returns their input.
+     *
+     * @param message Message to display
+     * @return Trimmed user input
+     */
     private static String prompt(String message) {
         System.out.print(message);
         return SC.nextLine().trim();
